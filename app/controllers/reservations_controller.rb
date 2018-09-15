@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
 
  def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.user_id = current_user.id # login user がblog を投稿
+    # @reservation.user_id = current_user.id # login user がblog を投稿
     if @reservation.save
       redirect_to reservations_path, notice: "予約を作成しました！"
       @inform = current_user.email
@@ -48,7 +48,7 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(reservation_params)
-    @reservation.user_id=current_user.id
+    # @reservation.user_id=current_user.id
     render :new if @reservation.invalid?
   end
 

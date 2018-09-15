@@ -15,6 +15,7 @@ resources :customers do
   resources :reservations do
     collection do
       post :new
+      post :confirm
     end
   end
 
