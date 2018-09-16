@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <%= link_to 'ログアウトします！', destroy_customer_session_path, method: :delete if current_customer %>
     <%= yield %>
   </body>
 </html>

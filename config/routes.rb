@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   root to: 'reservations#new'
   devise_for :customers, controllers: {
   sessions:      'customers/sessions',
@@ -14,7 +15,7 @@ resources :customers do
   devise_for :admins
   resources :reservations do
     collection do
-      post :new
+      get :mail
       post :confirm
     end
   end

@@ -1,4 +1,4 @@
 class Reservation < ApplicationRecord
-  belongs_to :customers
-  belongs_to :admins
+  has_many :customers
+  has_many :admins
 end

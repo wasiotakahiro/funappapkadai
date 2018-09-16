@@ -4,4 +4,3 @@ class ApplicationMailer < ActionMailer::Base
 
  mail to: "自分のメールアドレス", subject: "お問い合わせの確認メール"
 end
-end

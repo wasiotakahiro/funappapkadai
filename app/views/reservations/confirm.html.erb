@@ -1,22 +1,22 @@
 <h1>確認画面</h1>
-<%= form_with(model: @customer, url: customers_path, local: true) do |form| %>
+<%= form_with(model: @reservation, url: reservations_path, local: true) do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :email %>
-  <%= form.hidden_field :password %>
-  <%= form.hidden_field :password_confirmation %>
+  <%= form.hidden_field :content %>
 
-  <p>名前:<%= @customer.name %></p>
-  <p>メールアドレス:<%= @customer.email %></p>
-  <p>パスワード:<%= @customer.password %></p>
-  <p>
+  <p>名前:<%= @reservation.name %></p>
+  <p>メールアドレス:<%= @reservation.email %></p>
+  <p>一言:<%= @reservation.content %></p>
+
   </p>
 
 
   <%= form.submit "登録する" %>
 <% end %>
 
-<%= form_with(model:@cutomer, url:new_customers_path, local:true, method:"get") do |form| %>
+<%= form_with(model:@reservations, url:reservations_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :email %>
+  <%= form.hidden_field :content %>
   <%= form.submit "戻る", name: "back" %>
 <% end %>

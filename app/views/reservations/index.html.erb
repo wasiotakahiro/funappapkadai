@@ -1,1 +1,16 @@
-予約を取得すような記述
+<h1>予約一覧</h1>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+<% @reservations.each do |reservation| %>
+  <tr>
+    <td><%= reservation.name %></td>
+    <td><%= reservation.email %></td>
+    <td><%= link_to 'このユーザーにメールを送信します', mail_reservations_path(reservation_id: reservation.id) %></td>
+  </tr>
+<% end %>
+</table>
