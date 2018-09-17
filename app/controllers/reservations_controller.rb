@@ -53,9 +53,9 @@ class ReservationsController < ApplicationController
   end
 
   def mail
-    reservation_mail = Reservation.find(params[:reservation_id].to_i).email
-    raise
-    redirect_to reservation_path
+    @reservation = Reservation.find(params[:reservation_id].to_i)
+    ContactMailer.contact_mail(@reservation).deliver  ##追記
+    redirect_to reservation_path(params[:reservation_id])
   end
 
   private
