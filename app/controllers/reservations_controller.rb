@@ -13,19 +13,17 @@ class ReservationsController < ApplicationController
     end
   end
 
- def create
-    @reservation = Reservation.new(reservation_params)
-    # @reservation.user_id = current_customer.id # login user がblog を投稿
-    if @reservation.save
-      redirect_to reservations_path, notice: "予約を作成しました！"
-      # @inform = current_customer.email
-      # ContactMailer.send_mail(@inform).deliver
-    else
-      render 'new'
-    end
-
-
- end
+#  def create
+#     @reservation = Reservation.new(reservation_params)
+#     # @reservation.user_id = current_customer.id # login user がblog を投稿
+#     if @reservation.save
+#       redirect_to reservations_path, notice: "予約を作成しました！"
+#       # @inform = current_customer.email
+#       # ContactMailer.send_mail(@inform).deliver
+#     else
+#       render 'new'
+#     end
+#  end
 
   def show
       @reservations = Reservation.all
@@ -49,8 +47,12 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(reservation_params)
-    # @reservation.user_id=current_customer.id
-    render :new if @reservation.invalid?
+
+    if @reservation.save
+      redirect_to reservations_path, notice: "予約を作成しました！"
+    else
+      render :new
+    end
   end
 
   def mail
@@ -61,7 +63,12 @@ class ReservationsController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:name, :content, :email)
+      params.require(:reservation).permit(
+        :name, 
+        :content, 
+        :email,
+        :customer_id
+        )
     end
 
     def set_reservation
