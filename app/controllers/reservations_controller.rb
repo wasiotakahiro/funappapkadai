@@ -48,7 +48,7 @@ class ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(reservation_params)
 
-    if @reservation.valid?
+    if @reservation.save
       redirect_to reservations_path, notice: "予約を作成しました！"
     else
       render :new
