@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :contacts
-  root to: 'reservations#new'
+  root 'tops#index'
   devise_for :customers, controllers: {
   sessions:      'customers/sessions',
   passwords:     'customers/passwords',

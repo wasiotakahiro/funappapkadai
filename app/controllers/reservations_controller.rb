@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  before_action :require_sign_in!, only: [:index, :new, :edit, :show]
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy ]
+  # before_action :require_sign_in!, only: [:index, :new, :edit, :show]
  def index
     @reservations = Reservation.all
  end
@@ -28,6 +28,7 @@ class ReservationsController < ApplicationController
  end
 
   def show
+      @reservations = Reservation.all
   end
 
   def edit
@@ -43,7 +44,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
-    redirect_to reservation_path, notice:"ブログを削除しました！"
+    redirect_to reservations_path, notice:"ブログを削除しました！"
   end
 
   def confirm
@@ -67,13 +68,13 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.find(params[:id])
     end
 
-    def set_user_infomation
-      @reservation = Reservation.find(params[:id])
-    end
+    # def set_user_infomation
+    #   @reservation = Reservation.find(params[:id])
+    # end
 
-    def require_sign_in!
-      unless logged_in?
-        redirect_to new_customer_session_path, noctice:"ログインしてください"
-      end
-    end
+    # def require_sign_in!
+    #   unless logged_in?
+    #     redirect_to new_customer_session_path, noctice:"ログインしてください"
+    #   end
+    # end
   end

@@ -11,6 +11,7 @@
     <td><%= reservation.name %></td>
     <td><%= reservation.email %></td>
     <td><%= link_to 'このユーザーにメールを送信します', mail_reservations_path(reservation_id: reservation.id) %></td>
+     <td><%= link_to 'ブログを削除する', reservation_path(reservation.id), method: :delete %></td>
   </tr>
 <% end %>
 </table>

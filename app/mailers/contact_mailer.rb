@@ -1,5 +1,4 @@
 class ContactMailer < ApplicationMailer
-    layout 'mailer'
     def contact_mail(reservation)
       @reservation = reservation
       #@url = 'https://sheltered-scrubland-71446.herokuapp.com/'
