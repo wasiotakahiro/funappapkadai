@@ -11,7 +11,9 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
+    <div class="tab1">
     <em>(<%= @minimum_password_length %> characters minimum)</em>
+    </div>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -25,6 +27,7 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<div class="actions2">
 adminはこちら
-
 <%= render "customers/shared/links" %>
+</div>

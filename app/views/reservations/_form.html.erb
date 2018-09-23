@@ -14,15 +14,18 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-  <div class="customer_mail">
+  <div class="customer_content">
     <%= form.label :content %>
     <%= form.text_field :content %>
-  <div class="customer_mail">
+  <div class="customer_email">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
   <%= form.hidden_field :customer_id, { value: current_customer.id } %>
-
+<div class="customer_submit">
   <%= form.submit %>
+  </div>
 <% end %>
+<div class="admin_s">
 <%= link_to "adminはこちら", new_admin_session_path %>
+  </div>

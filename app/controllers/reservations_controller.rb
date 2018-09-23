@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     # @reservation.user_id = current_customer.id # login user がblog を投稿
     if @reservation.save
-      redirect_to reservations_path, notice: "予約を作成しました！"
+      redirect_to reservation_path(@reservation), notice: "予約を作成しました！"
       # @inform = current_customer.email
       # ContactMailer.send_mail(@inform).deliver
     else
@@ -50,7 +50,7 @@ class ReservationsController < ApplicationController
     @reservation = current_customer.reservations.build(reservation_params)
 
     if @reservation.save
-      redirect_to reservations_path, notice: "予約を作成しました！"
+      redirect_to reservation_path(@reservation), notice: "予約を作成しました！"
     else
       render :new
     end

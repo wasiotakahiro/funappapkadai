@@ -12,11 +12,10 @@
     <td><%= reservation.name %></td>
     <td><%= reservation.email %></td>
     <td><%= reservation.content %></td>
-
+</table>
 
     <td><%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn-info' %></td>
      <td><%= link_to '履歴を削除する',reservation_path(reservation.id), class: 'btn btn-info' , method: :delete %></td>
 
   </tr>
 <% end %>
-</table>
