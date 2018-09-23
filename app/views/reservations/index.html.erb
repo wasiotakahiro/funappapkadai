@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>タイトル</th>
+    <th>名前</th>
+    <th>メールアドレス</th>
     <th>内容</th>
   </tr>
 
@@ -10,8 +11,12 @@
   <tr>
     <td><%= reservation.name %></td>
     <td><%= reservation.email %></td>
-    <td><%= link_to 'このユーザーにメールを送信します', mail_reservations_path(reservation_id: reservation.id) %></td>
-     <td><%= link_to 'ブログを削除する', reservation_path(reservation.id), method: :delete %></td>
+    <td><%= reservation.content %></td>
+
+
+    <td><%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn-info' %></td>
+     <td><%= link_to '履歴を削除する',reservation_path(reservation.id), class: 'btn btn-info' , method: :delete %></td>
+
   </tr>
 <% end %>
 </table>
