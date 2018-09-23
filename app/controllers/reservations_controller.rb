@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy ]
   # before_action :require_sign_in!, only: [:index, :new, :edit, :show]
  def index
+    redirect_to new_reservation_path unless current_admin
     @reservations = Reservation.all
  end
 
@@ -13,17 +14,17 @@ class ReservationsController < ApplicationController
     end
   end
 
-#  def create
-#     @reservation = Reservation.new(reservation_params)
-#     # @reservation.user_id = current_customer.id # login user がblog を投稿
-#     if @reservation.save
-#       redirect_to reservations_path, notice: "予約を作成しました！"
-#       # @inform = current_customer.email
-#       # ContactMailer.send_mail(@inform).deliver
-#     else
-#       render 'new'
-#     end
-#  end
+ def create
+    @reservation = Reservation.new(reservation_params)
+    # @reservation.user_id = current_customer.id # login user がblog を投稿
+    if @reservation.save
+      redirect_to reservations_path, notice: "予約を作成しました！"
+      # @inform = current_customer.email
+      # ContactMailer.send_mail(@inform).deliver
+    else
+      render 'new'
+    end
+ end
 
   def show
       @reservations = Reservation.all
@@ -46,7 +47,7 @@ class ReservationsController < ApplicationController
   end
 
   def confirm
-    @reservation = Reservation.new(reservation_params)
+    @reservation = current_customer.reservations.build(reservation_params)
 
     if @reservation.save
       redirect_to reservations_path, notice: "予約を作成しました！"
@@ -64,10 +65,10 @@ class ReservationsController < ApplicationController
   private
     def reservation_params
       params.require(:reservation).permit(
-        :name, 
-        :content, 
+        :name,
+        :content,
         :email,
-        :customer_id
+        # :customer_id
         )
     end
 

@@ -9,7 +9,8 @@
   </head>
 
   <body>
-    <%= link_to 'ログアウトします！', destroy_customer_session_path, method: :delete if current_customer %>
+    <%= link_to 'ログアウトします！（customer）', destroy_customer_session_path, method: :delete if current_customer %>
+    <%= link_to 'ログアウトします！（admin）', destroy_admin_session_path, method: :delete if current_admin %>
     <%= yield %>
   </body>
 </html>

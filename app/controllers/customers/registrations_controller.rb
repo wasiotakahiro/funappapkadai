@@ -10,9 +10,10 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    # redirect_to new_reservation_path
+  end
 
   # GET /resource/edit
   # def edit
