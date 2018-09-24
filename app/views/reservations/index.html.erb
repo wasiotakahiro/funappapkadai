@@ -1,21 +1,23 @@
 <h1>予約一覧</h1>
-
-<table>
-  <tr>
-    <th>名前</th>
-    <th>メールアドレス</th>
-    <th>内容</th>
-  </tr>
+登録の順番通りになっています。
+<br>
+<br>
+メールを送信したら削除してください。
 
 <% @reservations.each do |reservation| %>
-  <tr>
-    <td><%= reservation.name %></td>
-    <td><%= reservation.email %></td>
-    <td><%= reservation.content %></td>
+<tbody>
+<table border="1">
+    <tr>
+      <th class="textbox">名前:<%= reservation.name %></th>
+    </tr>
+    <tr>
+      <th class="textbox">メールアドレス:<%= reservation.email %></th>
+    </tr>
+    <tr>
+      <th class="textbox">内容:<%= reservation.content %></th>
+    </tr>
+  <td class="textbox"><%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn btn-info' %><%= link_to '履歴を削除する',reservation_path(reservation.id), class: 'btn btn-info' , method: :delete %></td>
+
+</tbody>
 </table>
-
-    <td><%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn-info' %></td>
-     <td><%= link_to '履歴を削除する',reservation_path(reservation.id), class: 'btn btn-info' , method: :delete %></td>
-
-  </tr>
-<% end %>
+  <% end %>
