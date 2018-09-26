@@ -1,7 +1,7 @@
 // Place all the styles related to the reservation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.end { width: 960px; margin: 0 auto; font-size: 2.5em; position: absolute; top: 0;}
+.end { width: 960px; margin: 0 auto; font-size: 1.0em; position: absolute; top: 0;}
 body {
 	position: absolute;
 }
@@ -24,6 +24,17 @@ body {
 .textbox{padding-top: 30px; padding-bottom: 30px;
   border: 4px double #000;
       margin: 2em 0;
-      padding: 2em; }
+      padding: 2em;
+      font-size: 1.5em;
+    }
+    .textbox2{padding-top: 30px; padding-bottom: 30px;
+      border: 4px double #000;
+          margin: 2em 0;
+          padding: 2em;
+          font-size: 0.5em;
+        }
 .btn btn-info1{margin-top: 10px; }
-.admin{margin-bottom: 200px; }
+.admin{margin-bottom: 100px; }
+.button, input{padding: 10px;}
+.menu1 {margin-top: 15px; font-size: 10px}
+.menu2 {margin-top: 15px; font-size: 30px}
