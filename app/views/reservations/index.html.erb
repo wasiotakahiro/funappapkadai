@@ -3,18 +3,22 @@
 <h1>メールを送信したら削除してください。<h1>
 
 <% @reservations.each do |reservation| %>
-<table class="table table-bordered">
-    <thead>
-    <tr>
-      <th class="textbox1">名前:<%= reservation.name %></th>
-    </tr>
-    <tr>
-      <th class="textbox4">メールアドレス:<%= reservation.email %></th>
-    </tr>
-    <tr>
-      <th class="textbox3">内容:<%= reservation.content %></th>
-    </tr>
-  <td class="textbox"><%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn btn-info' %><%= link_to '履歴を削除する',reservation_path(reservation.id), class: 'btn btn-info' , method: :delete %></td>
-</thead>
-</table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th class="warning">名前:<%= reservation.name %></th>
+        </tr>
+        <tr>
+          <th class="success">メールアドレス:<%= reservation.email %></th>
+        </tr>
+        <tr>
+          <th class="danger">内容:<%= reservation.content %></th>
+        </tr>
+      <td class="info">
+        <%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn btn-info' %>
+        <%= link_to '履歴を削除する',reservation_path(reservation.id), class: 'btn btn-info' , method: :delete %>
+        <%= link_to "ブログを編集する", edit_reservation_path(reservation.id), class: 'btn btn-info' %>
+      </td>
+    </thead>
+    </table>
   <% end %>

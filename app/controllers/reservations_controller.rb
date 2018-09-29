@@ -24,6 +24,10 @@ class ReservationsController < ApplicationController
     else
       render 'new'
     end
+    if params[:check]== true
+      @reservation.save(reservation_params)
+      redirect_to reservations_path
+    end
  end
 
   def show
@@ -31,11 +35,12 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @reservation = Reservation.find(params[:id])
   end
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to reservation_path, notice: "ブログを編集しました！"
+      redirect_to reservations_path, notice: "編集しました！"
     else
       render 'edit'
     end
@@ -43,7 +48,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
-    redirect_to reservations_path, notice:"ブログを削除しました！"
+    redirect_to reservations_path, notice:"削除しました！"
   end
 
   def confirm
@@ -68,6 +73,7 @@ class ReservationsController < ApplicationController
         :name,
         :content,
         :email,
+        :check
         # :customer_id
         )
     end
