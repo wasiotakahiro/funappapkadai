@@ -1,6 +1,10 @@
 <h1>予約一覧</h1>
-<h1>登録の順番通りになっています。<h1>
-<h1>メールを送信したら削除してください。<h1>
+<p>登録の順番通りになっています。</p>
+<p>メールを送信したら削除してください。</p>
+
+<% if notice %>
+    <p class="notice"><%= notice %></p>
+<% end %>
 
 <% @reservations.each do |reservation| %>
     <table class="table table-bordered">
@@ -15,9 +19,14 @@
           <th class="danger">内容:<%= reservation.content %></th>
         </tr>
       <td class="info">
-        <%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn btn-info' %>
-        <%= link_to '履歴を削除する',reservation_path(reservation.id), class: 'btn btn-info' , method: :delete %>
-        <%= link_to "ブログを編集する", edit_reservation_path(reservation.id), class: 'btn btn-info' %>
+        <%= link_to 'メールを送信します', mail_reservations_path(reservation_id: reservation.id),class: 'btn btn btn-info'  %>
+        <%# if flash[:notice] %>
+     <!-- <div class="flash"> -->
+       <%#= flash[:notice] %>
+     <!-- </div> -->
+     <%# end %>
+        <%= link_to "履歴を削除する",reservation_path(reservation.id), class: 'btn btn-info' , method: :delete, data: { confirm: '本当に編集していいですか？' } %>
+        <%= link_to "ステータスを編集する", edit_reservation_path(reservation.id), class: 'btn btn-info' %>
       </td>
     </thead>
     </table>
