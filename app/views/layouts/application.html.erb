@@ -9,11 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="page-header">
-    <%= link_to 'topへ戻る', root_path  %>
+<div class ="all">
+    <%= link_to 'topへ戻る', root_path, class: "root" %>
     <%= link_to 'ログアウトします！', destroy_customer_session_path, method: :delete if current_customer %>
     <%= link_to 'ログアウトします！（admin）', destroy_admin_session_path, method: :delete if current_admin %>
     <%= yield %>
-  </header>
+  </div>
 
 </html>
