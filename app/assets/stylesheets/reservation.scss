@@ -1,7 +1,7 @@
 // Place all the styles related to the reservation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.end { width: 800px; margin: 0 auto; font-size: 1.0em; margin-top: auto;top: 0;}
+.end { width: 800px; margin: 0 auto; font-size: 1.0em; margin-top: auto;top: 0;　font-size: 40px}
 body {
 	text-align: center;
 }
@@ -66,3 +66,10 @@ header.page-header{ text-align: center;}
 .htag{margin-top: 15px; font-size: 70px}
 h1{margin-top: 15px; font-size: 70px}
 .logout{margin-top: 15px; font-size: 71px}
+a.root{margin-top: 15px; font-size: 40px }
+a{margin-top: 15px; font-size: 40px}
+.top{ padding-top: 50px }
+.new_admin{ padding-top: 100px  }
+.new_customer{ padding-top: 100px }
+h2{margin-top: 150px; font-size: 70px}
+form{margin-top: 40px; font-size: 30px}
